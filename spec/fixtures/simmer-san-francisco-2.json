@@ -1,0 +1,93 @@
+{
+  "id": "simmer-san-francisco-2",
+  "name": "Simmer",
+  "image_url": "https://s3-media1.fl.yelpcdn.com/bphoto/D2UUKUx-LtSSOObDuHdS0w/o.jpg",
+  "is_claimed": true,
+  "is_closed": false,
+  "url": "https://www.yelp.com/biz/simmer-san-francisco-2?adjust_creative=GiYH0fdu1tCO-8mmhBUi3w&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=GiYH0fdu1tCO-8mmhBUi3w",
+  "phone": "+14155988220",
+  "display_phone": "(415) 598-8220",
+  "review_count": 34,
+  "categories": [
+    {
+      "alias": "hotpot",
+      "title": "Hot Pot"
+    }
+  ],
+  "rating": 4,
+  "location": {
+    "address1": "1055 Taraval St",
+    "address2": "",
+    "address3": null,
+    "city": "San Francisco",
+    "zip_code": "94116",
+    "country": "US",
+    "state": "CA",
+    "display_address": [
+      "1055 Taraval St",
+      "San Francisco, CA 94116"
+    ],
+    "cross_streets": "21st Ave & 20th Ave"
+  },
+  "coordinates": {
+    "latitude": 37.74276,
+    "longitude": -122.47759
+  },
+  "photos": [
+    "https://s3-media1.fl.yelpcdn.com/bphoto/D2UUKUx-LtSSOObDuHdS0w/o.jpg",
+    "https://s3-media4.fl.yelpcdn.com/bphoto/gQo-6dh-pMHne_dlczBZfg/o.jpg",
+    "https://s3-media3.fl.yelpcdn.com/bphoto/mDQ3Akrv9VqFVhgz4EQidQ/o.jpg"
+  ],
+  "price": "$$",
+  "hours": [
+    {
+      "open": [
+        {
+          "is_overnight": false,
+          "start": "1700",
+          "end": "2200",
+          "day": 0
+        },
+        {
+          "is_overnight": false,
+          "start": "1700",
+          "end": "2200",
+          "day": 1
+        },
+        {
+          "is_overnight": false,
+          "start": "1700",
+          "end": "2200",
+          "day": 2
+        },
+        {
+          "is_overnight": false,
+          "start": "1700",
+          "end": "2200",
+          "day": 3
+        },
+        {
+          "is_overnight": false,
+          "start": "1700",
+          "end": "2300",
+          "day": 4
+        },
+        {
+          "is_overnight": false,
+          "start": "1700",
+          "end": "2300",
+          "day": 5
+        },
+        {
+          "is_overnight": false,
+          "start": "1700",
+          "end": "2200",
+          "day": 6
+        }
+      ],
+      "hours_type": "REGULAR",
+      "is_open_now": false
+    }
+  ],
+  "transactions": []
+}
