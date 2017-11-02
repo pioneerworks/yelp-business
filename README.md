@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/pioneerworks/yelp-business.svg?branch=master)](https://travis-ci.org/pioneerworks/yelp-business)
+
 # Yelp::Business
 
 This is the simple data model encapsulating Yelp Business data received over [Fusion V3 API](https://www.yelp.com/developers/documentation/v3/business).
@@ -6,15 +8,23 @@ This is the simple data model encapsulating Yelp Business data received over [Fu
 
 ### Configure
 
-First we need to configure the access token:
+First we need to configure the [access token](https://www.yelp.com/developers/documentation/v3/authentication):
+
+You can set the token either prorammatiacally (in ruby), or usin an external environment variable `YELP_ACCESS_TOKEN`.
+
+```bash
+export YELP_ACCESS_TOKEN='5eUZNOPOlWw9oQHowSKaYcWQK......'
+```
+
+Or, in ruby:
 
 ```ruby
-# this goes into the Rails Initiaizer 
-# config/initializers/yelp.rb
-require 'yelp/business'
+# Set the token either directly on +Yelp+ module:
+Yelp.access_token = '5eUZNOPOlWw9oQHowSKaYcWQK....'
+
+# or using #configure method on Yelp::Business
 Yelp::Business.configure do |config|
-  config.access_token = '..' 
-  config.base_url = 'https://api.yelp.com/v3/businesses/{id}'
+  config.access_token = token
 end
 ```
 
@@ -23,18 +33,27 @@ end
 Next, we'll fetch and cache business info. In your code, when you have business id or URL:
 
 ```ruby
-business_url = 'https://www.yelp.com/biz/gary-danko-san-francisco'
-cache_key = "#{current_company.id}.#{business_url}"
-
 require 'yelp/business'
-business = Rails.cache.fetch(cache_key) do 
-  Yelp::Business.new(access_token: token, business: identifier)
-end
 
-# You can then add methods to the internal
-Company.new(2134).yelp_business #=> 
- 
+url  = 'https://www.yelp.com/biz/gary-danko-san-francisco'
+name = Yelp::Business.business_id_from(url) # => 'gary-danko-san-francisco'
+
+# initialize the object, and also fetch the data from Yelp
+business  = Yelp::Business.new(name).get
+
+# You can now call methods on the instance to access it's attributes:
+business.name   # => 'Gary Danko'
 business.rating #=> 4.5
+```
+
+You can also cache the results of the call:
+
+```ruby
+cache_key  = "yelp.business.#{business_id}"
+business   = Rails.cache.fetch(cache_key) do 
+  Yelp::Business.new(business_id).get
+end
+business.name #=> 'Gary Danko'
 ```
 
 ## Installation

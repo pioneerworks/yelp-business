@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+lib_path = File.expand_path(File.dirname(__FILE__) + '/../lib')
+$LOAD_PATH << lib_path if File.exist?(lib_path) && !$LOAD_PATH.include?(lib_path)
+
+require_relative '../lib/yelp/business'
+require 'colored2'
+
+if ARGV.empty?
+  puts 'usage: yelp-business <business_id>'
+  puts '   eg: yelp-business gary-danko-san-francisco'
+else
+  require 'awesome_print'
+  begin
+    ap Yelp::Business.new(ARGV.shift).get.data
+  rescue Yelp::MissingAccessTokenError
+    puts 'Error!'.bold.red + ' Set ' + 'YELP_ACCESS_TOKEN'.bold.blue + ' environment variable!'
+  end
+
+end
