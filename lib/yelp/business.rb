@@ -20,17 +20,17 @@ module Yelp
     end
 
     attr_accessor :data,
-                  :business_url,
-                  :business_id,
-                  :api_url,
-                  :reviews_api_url
+      :business_url,
+      :business_id,
+      :api_url,
+      :reviews_api_url
 
     def initialize(business_id = nil)
       raise ::Yelp::InvalidIdentifierError, 'business ID can not be nil' if business_id.nil?
       self.business_id  = business_id
       self.business_url = PUBLIC_URL_PREFIX + business_id
       self.api_url      = API_HOST + BUSINESS_PATH + self.business_id if self.business_id
-      self.reviews_api_url = API_HOST + BUSINESS_PATH + self.business_id if self.business_id + BUSINESS_REVIEWS_SUFFIX
+      self.reviews_api_url = API_HOST + BUSINESS_PATH + self.business_id + REVIEWS_SUFFIX
     end
 
 

@@ -81,6 +81,7 @@ RSpec.describe Yelp::Business do
     if ENV['YELP_ACCESS_TOKEN']
       context 'with a real access token' do
         before { Yelp.access_token = ENV['YELP_ACCESS_TOKEN'] }
+
         context 'valid business' do
           before { business.get }
           let(:business_id) { 'gary-danko-san-francisco' }
@@ -93,6 +94,14 @@ RSpec.describe Yelp::Business do
           it 'should raise BusinessNotFoundError' do
             expect { business.get }.to raise_error (Yelp::BusinessNotFoundError)
           end
+        end
+
+        context 'get_reviews' do
+          before { business.get_reviews }
+
+          let(:business_id) { 'gary-danko-san-francisco' }
+
+          its(:reviews) { should be_an_instance_of(Array) }
         end
       end
     end
