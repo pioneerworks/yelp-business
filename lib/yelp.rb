@@ -1,7 +1,6 @@
 require 'yelp/business/version'
 
 module Yelp
-
   class BaseError < StandardError; end
   class BusinessNotFoundError < BaseError; end
   class InvalidIdentifierError < BaseError; end
@@ -11,7 +10,7 @@ module Yelp
 
   API_HOST          = 'https://api.yelp.com'
   BUSINESS_PATH     = '/v3/businesses/'
-  REVIEWS_SUFFIX     = '/reviews'
+  REVIEWS_SUFFIX    = '/reviews'
   PUBLIC_URL_PREFIX = 'https://www.yelp.com/biz/'
 
   class << self

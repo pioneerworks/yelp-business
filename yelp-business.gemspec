@@ -7,7 +7,7 @@ require 'yelp/business/version'
 Gem::Specification.new do |spec|
   spec.name          = 'yelp-business'
   spec.version       = Yelp::Business::VERSION
-  spec.authors       = ['Konstantin Gredeskoul', 'Tim Cannady']
+  spec.authors       = ['Konstantin Gredeskoul', 'Tim Cannady', 'Pioneerworks, Inc']
   spec.email         = %w(kigster@gmail.com tim@joinhomebase.com)
 
   spec.summary       = 'Provides and easy to use model wrapping Yelp Business'
@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  #spec.add_dependency 'dry-configurable'
   spec.add_dependency 'http'
   spec.add_dependency 'colored2'
   spec.add_dependency 'awesome_print'

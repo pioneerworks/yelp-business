@@ -1,5 +1,9 @@
 [![Build Status](https://travis-ci.org/pioneerworks/yelp-business.svg?branch=master)](https://travis-ci.org/pioneerworks/yelp-business)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/0ddd76e19c265107cd3e/maintainability)](https://codeclimate.com/github/pioneerworks/yelp-business/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/0ddd76e19c265107cd3e/test_coverage)](https://codeclimate.com/github/pioneerworks/yelp-business/test_coverage)
+
 # Yelp::Business
 
 This is the simple data model encapsulating Yelp Business data received over [Fusion V3 API](https://www.yelp.com/developers/documentation/v3/business).
