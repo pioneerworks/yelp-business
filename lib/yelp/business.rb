@@ -29,6 +29,7 @@ module Yelp
       self.business_id  = business_id
       self.business_url = PUBLIC_URL_PREFIX + business_id
       self.api_url      = API_HOST + BUSINESS_PATH + self.business_id if self.business_id
+      self.reviews_api_url = API_HOST + BUSINESS_PATH + self.business_id if self.business_id + BUSINESS_REVIEWS_SUFFIX
     end
 
 
@@ -46,6 +47,10 @@ module Yelp
     end
 
     alias get fetch
+
+    def get_reviews
+      self.data = OpenStruct.new(reviews_api_fetch)
+    end
 
     def exec_api_call
       raise ::Yelp::MissingAccessTokenError unless access_token
@@ -71,6 +76,12 @@ module Yelp
       HTTP.
         auth(bearer_token).
         get(api_url).parse
+    end
+
+    def reviews_api_fetch
+      HTTP.
+        auth(bearer_token).
+        get(reviews_api_url).parse
     end
 
     def bearer_token
