@@ -33,7 +33,6 @@ module Yelp
       self.reviews_api_url = API_HOST + BUSINESS_PATH + self.business_id + REVIEWS_SUFFIX
     end
 
-
     # usage: @business.fetch do |data|
     #   data.name #=> 'Gary Danko'
     # end

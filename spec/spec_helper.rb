@@ -4,6 +4,7 @@ require 'simplecov'
 SimpleCov.start
 
 require 'yelp/business'
+require 'yelp/search'
 require 'rspec/its'
 
 RSpec.configure do |config|

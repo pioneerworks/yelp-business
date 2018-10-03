@@ -11,6 +11,7 @@ module Yelp
   API_HOST          = 'https://api.yelp.com'
   BUSINESS_PATH     = '/v3/businesses/'
   REVIEWS_SUFFIX    = '/reviews'
+  SEARCH_SUFFIX     = 'search?'
   PUBLIC_URL_PREFIX = 'https://www.yelp.com/biz/'
 
   class << self
@@ -22,3 +23,4 @@ end
 
 
 require 'yelp/business'
+require 'yelp/search'
